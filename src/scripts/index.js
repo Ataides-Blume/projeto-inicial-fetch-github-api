@@ -18,4 +18,4 @@ function getUserProfile(userName){
     })
 }
 
-getUserProfile()
+getUserProfile('ataides-blume')
