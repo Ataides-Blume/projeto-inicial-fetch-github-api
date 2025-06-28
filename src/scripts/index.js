@@ -24,11 +24,6 @@ async function repos(userName){
 }
 
 function getUserProfile(userName){
-
-    repos(userName).then(reposData = {
-        console.log(reposData)
-    })
-
     user(userName).then(userData => {
         let userInfo = `<img src="${userData.avatar_url}" alt="Foto de perfil do usuário" />
                     <div class="data">
@@ -39,3 +34,20 @@ function getUserProfile(userName){
         document.querySelector('.profile-data').innerHTML = userInfo
     })
 }
+
+function getUserRepositories(userName){
+  repos(userName).then(reposData => {
+       let repositoriesItens = "" 
+       
+       reposData.forEach(repo => {
+        repositoriesItens += `<li><a href="${repo.html_url}"target="_blank">${repo.name}</a></li>`
+       })
+
+       document.querySelector('.profile-data').innerHTML += `<div class="repositories section">
+                                                               <h2>Repositórios</h2>
+                                                               <ul>${repositoriesItens}</ul>
+                                                               </div>`
+    })
+}
+
+getUserRepositories('ataides-blume')
