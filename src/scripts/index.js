@@ -15,16 +15,6 @@ document.getElementById('input-search').addEventListener('keyup', (e) => {
     }
 })
 
-async function user(userName){
-    const response = await fetch(`${baseUrl}/${userName}`)
-    return await response.json()
-}
-
-async function repos(userName){
-    const response = await fetch(`${baseUrl}/${userName}/repos?per_page=${repositoriesQuantity}`)
-    return await response.json()
-}
-
 function getUserProfile(userName){
     user(userName).then(userData => {
         let userInfo = `<div class="info"> 
