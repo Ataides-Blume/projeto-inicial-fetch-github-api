@@ -1,5 +1,8 @@
-import { user } from '../scripts/services/user.js'
-import { repositories } from '../scripts/services/repositories.js'
+import { getUser } from '../scripts/services/user.js'
+import { getRepositories } from '../scripts/services/repositories.js'
+
+import { user } from '../scripts/objects/user.js'
+import { screen } from '../scripts/objects/screen.js'
 
 document.getElementById('btn-search').addEventListener('click', () => {
     const userName = document.getElementById('input-search').value 
@@ -16,24 +19,24 @@ document.getElementById('input-search').addEventListener('keyup', (e) => {
     }
 })
 
-function getUserProfile(userName){
-    user(userName).then(userData => {
-        let userInfo = `<div class="info"> 
-                        <img src="${userData.avatar_url}" alt="Foto de perfil do usuário" />
-                        <div class="data">
-                             <h1>${userData.name ?? 'Não possui nome cadastrado'}</h1>
-                             <p>${userData.bio ?? 'Não possui bio cadastrada'}</p>
-                        </div>
-                        </div>`
+async function getUserProfile(userName){
+    
+    const userResponse = await getUser(userName)
+    user.setInfo(userResponse)
+    console.log(user) 
+    // user.repositories(repositories)
 
-        document.querySelector('.profile-data').innerHTML = userInfo
+    screen.renderUser(user)
+    
+    //     getUser(userName).then(userData => {
+            
 
-        getUserRepositories(userName)
-    })
-}
+    //         getUserRepositories(userName)
+    // })
+ }
 
 function getUserRepositories(userName){
-  repositories(userName).then(reposData => {
+  getRepositories(userName).then(reposData => {
        let repositoriesItens = "" 
        
        reposData.forEach(repo => {
