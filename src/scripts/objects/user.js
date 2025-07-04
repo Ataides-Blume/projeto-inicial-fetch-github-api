@@ -10,8 +10,8 @@ const user = {
           this.bio = gitHubUser.bio
           this.userName = gitHubUser.login
      },
-     setRepositories(){
-          this.repositories = this.repositories
+     setRepositories(repositories){
+          this.repositories = repositories
      }
 }
 
