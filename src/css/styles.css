@@ -96,6 +96,7 @@ main {
   display: flex;  
   flex-wrap: wrap;
   align-items: center;
+  
 }
 
 .container .profile-data .info .data{
@@ -132,7 +133,9 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
+
 
 .container .profile-data .repositories ul li a{
   padding: 20px;
@@ -141,6 +144,7 @@ main {
   display: block;
   border-radius: 7px;
   transition: 0.3s ease-in-out;
+  
 }
 
 .container .profile-data .repositories ul li a:hover{
@@ -150,6 +154,51 @@ main {
 
 .container .profile-data.hide{
   display: none;
+}
+
+.events{
+  background-color: rgba(240, 230, 230, 0.96);
+  padding: 20px 30px;
+  border-radius: 5px;
+  margin: 20px
+   
+}
+
+.profile-divider{
+  margin-top: 20px;
+}
+
+.profile-stats{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 15px 30px;
+  
+}
+
+.events h2{
+  margin-bottom: 30px;
+  margin-top: 15px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.events ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.events li{
+  margin-bottom: 12px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.event-message{
+  color:#7a7777;
+  margin-left: 5px;
 }
 
 @media (max-width: 1280px) {
