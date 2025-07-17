@@ -1,35 +1,3 @@
-// const screen = {
-//     userProfile: document.querySelector('.profile-data'),
-//     renderUser(user){
-//         this.userProfile.innerHTML = `<div class="info">
-//                     <img src="${user.avatarUrl}" alt="Foto de perfil do usuário" />
-//                     <div class="data">
-//                             <h1>${user.name ?? 'Não possui nome cadastrado'}</h1>
-//                             <p>${user.bio ?? 'Não possui bio cadastrada'}</p>
-
-//                              <p>Seguidores:${user.followers}</P>
-//                              <p>Seguindo:${user.following}</p>
-//                     </div>
-//                     </div>`
-//         let repositoriesItens = '' 
-//         user.repositories.forEach(repo => repositoriesItens += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`) 
-//         if(user.repositories.length > 0){
-//         this.userProfile.innerHTML+= `<div class="repositories section">
-//                                       <h2>Repositórios</2>
-//                                       <ul>${repositoriesItens}</ul>
-//                                       </div> `
-//        }
-//     },
-//     renderNotFound(){
-//         this.userProfile.innerHTML = "<h3>Usuário não encontrado</h3>"
-//     }
-// }
-
-// export { screen }       
-       
-        
-   // src/scripts/screen.js
-
 const screen = {
     userProfile: document.querySelector('.profile-data'),
     renderUser(user) {
@@ -55,17 +23,6 @@ const screen = {
             </div>
         `;
     },
-
-    // renderRepositories(repositories) {
-    //     let repositoriesItems = '';
-    //     if (repositories.length > 0) {
-    //         repositories.forEach(repo => repositoriesItems += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`);
-    //     } else {
-    //         repositoriesItems = '<li>Nenhum repositório encontrado.</li>';
-    //     }
-    //     return repositoriesItems;
-    // },
-
 renderRepositories(repositories) {
         let repositoriesItems = '';
         if (repositories.length > 0) {
@@ -73,12 +30,13 @@ renderRepositories(repositories) {
                 <li>
                     <a href="${repo.html_url}" target="_blank">
                         <h3>${repo.name}</h3>
-                        <p>
-                            <span>Fork🍴${repo.forks_count ?? 0} </span>
-                            <span>Estrelas⭐️${repo.stargazers_count ?? 0} </span>
-                            <span>Watchers👀${repo.watchers_count ?? 0} </span>
+                        <p class="repositories-dados">
+                            <span>🍴 ${repo.forks_count ?? 0} </span>
+                            <span>⭐️ ${repo.stargazers_count ?? 0} </span>
+                            <span>👀 ${repo.watchers_count ?? 0} </span>
+                            <span>💻: ${repo.language ?? 'Não informada'}</span>
                         </p>
-                        <p>Linguagem💻:${repo.language ?? 'Não informada'}</p>
+                        
                     </a>
                 </li>
             `);
@@ -87,9 +45,7 @@ renderRepositories(repositories) {
         }
         return repositoriesItems;
     },
-
-
-    // NOVA FUNÇÃO para renderizar os eventos - Adicione esta função dentro do objeto screen
+   
     renderEvents(events) {
         let eventsItems = '';
         if (events.length > 0) {

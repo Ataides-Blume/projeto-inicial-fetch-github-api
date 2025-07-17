@@ -35,8 +35,8 @@ main {
 }
 
 .container {
-  width: 60%; /* se for uma tela menor que 980px vai se adaptar a 70% */
-  max-width: 960px; /* quando chegar em 980px para de aumentar */
+  width: 60%; 
+  max-width: 960px; 
   box-shadow: rgba(0, 0, 0, 0.3) 0px 25px 50px -12px;
   background-color: #fff;
   display: flex;
@@ -80,7 +80,7 @@ main {
 }
 
 .container header #btn-search:hover {
-  background-color: hsl(43, 80%, 37%);
+  background-color: rgb(141, 141, 224);
   color: #ffffff;
   border-color: #ffffff;
 }
@@ -107,7 +107,7 @@ main {
 .container .profile-data .info img{
   width: 50%;
   border-radius: 50%;
-  border: 10px solid hsl(43, 80%, 37%);
+  border: 10px solid rgb(141, 141, 224);
 }
 
 .container .profile-data .info h1{
@@ -148,13 +148,33 @@ main {
 }
 
 .container .profile-data .repositories ul li a:hover{
-  background-color:hsl(43, 80%, 37%);
+  background-color:rgb(141, 141, 224);
   color: #fff
 }
 
 .container .profile-data.hide{
   display: none;
 }
+
+ .repositories-dados{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 5px;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+ }
+
+ .repositories-dados span{
+  background-color: #2f3279;
+  border: 1px solid #c9d1d9;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-top: 4px;
+ }
+
+
 
 .events{
   background-color: rgba(240, 230, 230, 0.96);
@@ -194,6 +214,7 @@ main {
   margin-bottom: 12px;
   line-height: 1.6;
   font-size: 16px;
+  
 }
 
 .event-message{
